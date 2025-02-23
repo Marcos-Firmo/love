@@ -1,0 +1,143 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+    background-color: #fddde6;
+
+}
+
+#box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    border-radius: 100px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+#box-love, #resultado, #heart {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 6px 20px rgba(225, 0, 195, 0.452);
+    color: whitesmoke;
+    background-color: #ff5c74;
+    border: 0.1px solid;
+    border-radius: 25px;
+}
+
+#yesBtn {
+    left: 43%;
+    position: absolute;
+}
+
+#noBtn {
+    left: 50%;
+    position: absolute;
+}
+
+#loading{
+    top: 25%;
+    position: absolute;
+}
+
+#gif1{
+    width: 155px;
+    height: 115px;
+}
+#gif2{
+    width: 175px;
+    height: 165px;
+}
+
+.heart {
+    position: relative;
+    width: 10px; 
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    animation: transformHeart 2s ease-out forwards, heartbeat 1s infinite 3s;
+}
+
+@keyframes transformHeart {
+    0% {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+    }
+    50% {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        transform: rotate(-20deg);
+    }
+    100% {
+        width: 50px;
+        height: 50px;
+        transform: rotate(-45deg);
+        border-radius: 0;
+    }
+}
+
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+@keyframes heartParts {
+    0% {
+        opacity: 0;
+        width: 10px;
+        height: 10px;
+    }
+    50% {
+        opacity: 1;
+        width: 30px;
+        height: 30px;
+    }
+    100% {
+        opacity: 1;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.heart::before {
+    top: -25px;
+    left: 0;
+    animation: heartParts 2s ease-out forwards;
+}
+
+.heart::after {
+    left: 25px;
+    top: 0;
+    animation: heartParts 2s ease-out forwards;
+}
+
+/* Batimento do coração */
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1) rotate(-45deg);
+    }
+    50% {
+        transform: scale(1.1) rotate(-45deg);
+    }
+}
